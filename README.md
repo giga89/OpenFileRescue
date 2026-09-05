@@ -214,6 +214,22 @@ python3 run.py
 
 ---
 
+### Option D: Install via pip 📦
+You can also install OpenFileRescue as a system or virtualenv package directly from GitHub:
+```bash
+pip install git+https://github.com/giga89/OpenFileRescue.git
+```
+Then run the tools directly from any terminal:
+```bash
+# Launch the Web Dashboard
+openfilerescue-gui
+
+# Or launch the interactive terminal CLI wizard
+openfilerescue --cli
+```
+
+---
+
 ## 💻 Command-Line Interface (CLI Mode)
 
 OpenFileRescue includes a headless CLI to scan, carve, clone, and recover files over SSH, terminal, or automated scripts without requiring a web browser:

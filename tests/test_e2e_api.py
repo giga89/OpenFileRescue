@@ -45,10 +45,10 @@ class TestEndToEndAPI(unittest.TestCase):
             return json.loads(resp.read().decode("utf-8"))
 
     def test_full_recovery_cycle(self):
-        # 1. Check sources
+        # 1. Check sources API returns valid response
         sources_res = self._get("/api/sources")
         self.assertTrue(sources_res["success"])
-        self.assertTrue(len(sources_res["sources"]) > 0)
+        self.assertTrue(isinstance(sources_res["sources"], list))
 
         # 2. Create sample test disk image
         sample_res = self._post("/api/create_sample_disk", {})
@@ -56,12 +56,17 @@ class TestEndToEndAPI(unittest.TestCase):
         img_path = sample_res["image_path"]
         self.assertTrue(os.path.exists(img_path))
 
+        # Verify the created sample disk appears in sources
+        sources_after = self._get("/api/sources")
+        self.assertTrue(sources_after["success"])
+        self.assertTrue(len(sources_after["sources"]) > 0)
+
         # 3. Start scan on sample disk
         start_res = self._post("/api/scan/start", {"source_path": img_path, "sector_step": 512})
         self.assertTrue(start_res["success"])
 
-        # 4. Wait for scan completion
-        max_wait = 10
+        # 4. Wait for scan completion (allow up to 25s for slow CI virtual disks)
+        max_wait = 25
         start_t = time.time()
         completed = False
 

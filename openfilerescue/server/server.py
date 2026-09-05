@@ -10,6 +10,7 @@ import urllib.parse
 import mimetypes
 import subprocess
 import threading
+import platform
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from socketserver import ThreadingMixIn
 from typing import Optional, Dict, Any, List
@@ -18,7 +19,6 @@ from openfilerescue.core.reader import SafeDiskReader, detect_available_sources
 from openfilerescue.core.carver import FileCarver, CarverStats
 from openfilerescue.core.exporter import FileExporter
 from openfilerescue.core.parsers.base import CarvedFile
-from tests.make_test_disk import create_test_image
 
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
@@ -47,6 +47,10 @@ class RecoveryState:
         if self.bridge_proc:
             try:
                 self.bridge_proc.terminate()
+                if self.bridge_proc.stdout:
+                    self.bridge_proc.stdout.close()
+                if self.bridge_proc.stderr:
+                    self.bridge_proc.stderr.close()
             except Exception:
                 pass
             self.bridge_proc = None
@@ -200,24 +204,30 @@ class RescueRequestHandler(BaseHTTPRequestHandler):
             STATE.stats.is_running = True
             STATE.stats.status_message = "Starting scan..."
 
-            # Determine whether this is a Windows physical drive (D:, /mnt/d, \\.\D:)
-            is_win_drive = (
-                source_path.startswith(r"\\.") or
-                (len(source_path) >= 2 and source_path[1] == ":") or
-                source_path.startswith("/mnt/") and os.path.isdir(source_path)
+            # If source_path is a regular file (.img, .raw, sample_microsd_card.img), always use native carver!
+            is_file = os.path.isfile(source_path)
+
+            # Check if this represents a raw Windows physical drive requiring the WSL bridge
+            is_wsl = "microsoft" in platform.uname().release.lower() or os.path.exists("/proc/sys/fs/binfmt_misc/WSLInterop")
+            is_wsl_bridge_needed = (
+                not is_file and is_wsl and (
+                    source_path.startswith(r"\\.") or
+                    (source_path.startswith("/mnt/") and os.path.isdir(source_path)) or
+                    (len(source_path) <= 3 and len(source_path) >= 2 and source_path[1] == ":")
+                )
             )
 
-            if is_win_drive:
-                # Launch Windows Carver Bridge via background thread
+            if is_wsl_bridge_needed:
+                # Launch Windows Carver Bridge via background thread (WSL -> Windows Host)
                 self._start_windows_bridge(source_path, sector_step)
             else:
-                # Launch native FileCarver
+                # Launch native FileCarver (Windows, Linux, macOS, Docker, disk images)
                 self._start_native_carver(source_path, sector_step)
 
             self._send_json({
                 "success": True,
                 "message": f"Scan successfully initiated on {source_path}",
-                "mode": "Windows Bridge" if is_win_drive else "Native Carver"
+                "mode": "Windows Bridge" if is_wsl_bridge_needed else "Native Carver"
             })
             return
 
@@ -287,13 +297,17 @@ class RescueRequestHandler(BaseHTTPRequestHandler):
 
         elif path == "/api/create_sample_disk":
             target_img = os.path.join(os.getcwd(), "sample_microsd_card.img")
-            info = create_test_image(target_img, size_mb=15)
-            self._send_json({
-                "success": True,
-                "message": "Demo 15MB SD card image created!",
-                "image_path": target_img,
-                "injected_count": len(info["injected_files"])
-            })
+            try:
+                from tests.make_test_disk import create_test_image
+                info = create_test_image(target_img, size_mb=15)
+                self._send_json({
+                    "success": True,
+                    "message": "Demo 15MB SD card image created!",
+                    "image_path": target_img,
+                    "injected_count": len(info["injected_files"])
+                })
+            except ImportError:
+                self._send_error_json("Pillow is required to generate synthetic test images. Install with: pip install pillow")
             return
 
         self._send_error_json("Endpoint not found", status=404)
