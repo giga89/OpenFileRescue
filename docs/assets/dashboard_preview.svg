@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" width="1200" height="780">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e17"/>
+      <stop offset="100%" stop-color="#121826"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2333" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#141c2b" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="780" fill="url(#bg)" rx="16"/>
+
+  <!-- Top Window Bar -->
+  <rect width="1200" height="40" fill="#0f172a" rx="16"/>
+  <rect y="30" width="1200" height="10" fill="#0f172a"/>
+  <circle cx="25" cy="20" r="6" fill="#ef4444"/>
+  <circle cx="45" cy="20" r="6" fill="#f59e0b"/>
+  <circle cx="65" cy="20" r="6" fill="#10b981"/>
+  <text x="600" y="24" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" text-anchor="middle" font-weight="500">OpenFileRescue Web UI Dashboard — http://127.0.0.1:8765</text>
+
+  <!-- Header -->
+  <g transform="translate(40, 60)">
+    <!-- Logo Icon -->
+    <rect width="42" height="42" rx="10" fill="url(#primaryGrad)"/>
+    <path d="M12 28a2 2 0 0 1-2-2V14a2 2 0 0 1 2-2h3l2-3h10l2 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H12z" stroke="#ffffff" stroke-width="2" fill="none" transform="translate(0, 1)"/>
+    <circle cx="21" cy="20" r="4" stroke="#ffffff" stroke-width="2" fill="none"/>
+
+    <!-- Brand Name & Badges -->
+    <text x="56" y="22" fill="#f8fafc" font-family="Outfit, -apple-system, sans-serif" font-size="20" font-weight="700">OpenFileRescue</text>
+    <rect x="200" y="7" width="130" height="20" rx="10" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+    <text x="265" y="21" fill="#fbbf24" font-family="sans-serif" font-size="10" font-weight="600" text-anchor="middle">Work in Progress (Alpha)</text>
+
+    <rect x="338" y="7" width="140" height="20" rx="10" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+    <text x="408" y="21" fill="#34d399" font-family="sans-serif" font-size="10" font-weight="600" text-anchor="middle">100% Free &amp; Open Source</text>
+
+    <!-- Safe Mode Pill -->
+    <rect x="940" y="6" width="180" height="28" rx="14" fill="#065f46" fill-opacity="0.3" stroke="#10b981" stroke-width="1"/>
+    <circle cx="958" cy="20" r="4" fill="#10b981"/>
+    <text x="970" y="24" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="600">Safe Mode (Read-Only)</text>
+  </g>
+
+  <!-- Telemetry Bar (4 Cards) -->
+  <g transform="translate(40, 120)">
+    <!-- Card 1: Read Speed -->
+    <rect x="0" y="0" width="265" height="75" rx="12" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="28" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="500">READ THROUGHPUT</text>
+    <text x="20" y="58" fill="#38bdf8" font-family="Outfit, sans-serif" font-size="26" font-weight="700">18.2 MB/s</text>
+
+    <!-- Card 2: Files Found -->
+    <rect x="285" y="0" width="265" height="75" rx="12" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+    <text x="305" y="28" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="500">FILES RESURRECTED</text>
+    <text x="305" y="58" fill="#10b981" font-family="Outfit, sans-serif" font-size="26" font-weight="700">1,392 files</text>
+    <text x="440" y="56" fill="#64748b" font-family="sans-serif" font-size="12">(980.3 MB)</text>
+
+    <!-- Card 3: Formats Breakdown -->
+    <rect x="570" y="0" width="265" height="75" rx="12" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+    <text x="590" y="28" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="500">FORMAT BREAKDOWN</text>
+    <text x="590" y="58" fill="#f8fafc" font-family="Outfit, sans-serif" font-size="20" font-weight="600">1,391 JPG <tspan fill="#64748b" font-size="14">| 1 AVI</tspan></text>
+
+    <!-- Card 4: Integrity Status -->
+    <rect x="855" y="0" width="265" height="75" rx="12" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+    <text x="875" y="28" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="500">HARDWARE INTEGRITY</text>
+    <text x="875" y="58" fill="#34d399" font-family="Outfit, sans-serif" font-size="22" font-weight="700">0 Bad Blocks</text>
+    <text x="1040" y="56" fill="#64748b" font-family="sans-serif" font-size="12">(100% Intact)</text>
+  </g>
+
+  <!-- LBA Sector Grid Map (Defrag Style) -->
+  <g transform="translate(40, 215)">
+    <rect x="0" y="0" width="1120" height="90" rx="12" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="26" fill="#f8fafc" font-family="Outfit, sans-serif" font-size="14" font-weight="600">Physical LBA Address Space — Sector Allocation Matrix (\\.\D: Kids Camera 29.11 GB)</text>
+    
+    <!-- Sector Grid Matrix (Blocks) -->
+    <g transform="translate(20, 42)">
+      <!-- 50 sample colored blocks showing file distribution -->
+      <!-- Green = Recovered File Sectors, Blue = Scanned, Dark = Free -->
+      <rect x="0" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="22" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="44" y="0" width="18" height="14" rx="2" fill="#059669"/>
+      <rect x="66" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="88" y="0" width="18" height="14" rx="2" fill="#38bdf8"/>
+      <rect x="110" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="132" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="154" y="0" width="18" height="14" rx="2" fill="#059669"/>
+      <rect x="176" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="198" y="0" width="18" height="14" rx="2" fill="#6366f1"/>
+      <rect x="220" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="242" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="264" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="286" y="0" width="18" height="14" rx="2" fill="#38bdf8"/>
+      <rect x="308" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="330" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="352" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="374" y="0" width="18" height="14" rx="2" fill="#059669"/>
+      <rect x="396" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="418" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="440" y="0" width="18" height="14" rx="2" fill="#38bdf8"/>
+      <rect x="462" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="484" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="506" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="528" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="550" y="0" width="18" height="14" rx="2" fill="#38bdf8"/>
+      <rect x="572" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="594" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="616" y="0" width="18" height="14" rx="2" fill="#10b981"/>
+      <rect x="638" y="0" width="18" height="14" rx="2" fill="#059669"/>
+      <rect x="660" y="0" width="18" height="14" rx="2" fill="#38bdf8"/>
+      <rect x="682" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="704" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="726" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="748" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="770" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="792" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="814" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="836" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="858" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="880" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="902" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="924" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="946" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="968" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="990" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="1012" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="1034" y="0" width="18" height="14" rx="2" fill="#334155"/>
+      <rect x="1056" y="0" width="18" height="14" rx="2" fill="#334155"/>
+    </g>
+
+    <!-- Legend -->
+    <g transform="translate(20, 68)">
+      <rect x="0" y="0" width="8" height="8" rx="2" fill="#10b981"/>
+      <text x="14" y="8" fill="#94a3b8" font-family="sans-serif" font-size="10">Recovered File Clusters</text>
+
+      <rect x="160" y="0" width="8" height="8" rx="2" fill="#38bdf8"/>
+      <text x="174" y="8" fill="#94a3b8" font-family="sans-serif" font-size="10">Scanned Clean</text>
+
+      <rect x="280" y="0" width="8" height="8" rx="2" fill="#6366f1"/>
+      <text x="294" y="8" fill="#94a3b8" font-family="sans-serif" font-size="10">Video Stream</text>
+
+      <rect x="390" y="0" width="8" height="8" rx="2" fill="#334155"/>
+      <text x="404" y="8" fill="#94a3b8" font-family="sans-serif" font-size="10">Pending / Unallocated</text>
+    </g>
+  </g>
+
+  <!-- Live Discovery Gallery & Lightbox Preview -->
+  <g transform="translate(40, 325)">
+    <!-- Header with Tabs and Export Action -->
+    <text x="0" y="24" fill="#f8fafc" font-family="Outfit, sans-serif" font-size="18" font-weight="700">Live Resurrected Files (1,392)</text>
+    
+    <!-- Filter Tabs -->
+    <g transform="translate(300, 5)">
+      <rect x="0" y="0" width="60" height="26" rx="6" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1"/>
+      <text x="30" y="17" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">All (1392)</text>
+
+      <rect x="70" y="0" width="85" height="26" rx="6" fill="#1e293b"/>
+      <text x="112" y="17" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="500" text-anchor="middle">Photos (1391)</text>
+
+      <rect x="165" y="0" width="75" height="26" rx="6" fill="#1e293b"/>
+      <text x="202" y="17" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="500" text-anchor="middle">Videos (1)</text>
+    </g>
+
+    <!-- Export Button -->
+    <g transform="translate(940, 2)">
+      <rect x="0" y="0" width="180" height="32" rx="8" fill="url(#primaryGrad)"/>
+      <text x="90" y="21" fill="#ffffff" font-family="Outfit, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Export All Files (Free)</text>
+    </g>
+
+    <!-- Cards Row -->
+    <g transform="translate(0, 45)">
+      <!-- Card 1: 48MP Photo -->
+      <g transform="translate(0, 0)">
+        <rect width="265" height="370" rx="12" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+        <!-- Photo Preview Area -->
+        <rect x="10" y="10" width="245" height="190" rx="8" fill="#1e293b"/>
+        <!-- SVG Photo Art (Mountain Landscape) -->
+        <path d="M10 150 L80 90 L130 130 L190 70 L255 160 L255 200 L10 200 Z" fill="#334155"/>
+        <path d="M50 160 L120 110 L170 140 L220 100 L255 170 L255 200 L50 200 Z" fill="#475569"/>
+        <circle cx="210" cy="50" r="16" fill="#fbbf24" fill-opacity="0.8"/>
+        <!-- Badge -->
+        <rect x="20" y="20" width="55" height="22" rx="4" fill="#0f172a" fill-opacity="0.8"/>
+        <text x="47" y="35" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">JPEG</text>
+        <!-- Info -->
+        <text x="15" y="225" fill="#f8fafc" font-family="Outfit, sans-serif" font-size="14" font-weight="600">recovered_0002fd4000.jpg</text>
+        <text x="15" y="246" fill="#94a3b8" font-family="monospace" font-size="11">Resolution: 8000 x 6000 (48 MP)</text>
+        <text x="15" y="266" fill="#94a3b8" font-family="monospace" font-size="11">Camera: Kids Camera KC-2026</text>
+        <text x="15" y="286" fill="#94a3b8" font-family="monospace" font-size="11">Size: 986.1 KB | Intact: 100%</text>
+        <text x="15" y="306" fill="#94a3b8" font-family="monospace" font-size="11">Offset: 0x0002fd4000 (Sector 97,952)</text>
+        <!-- Status Pill -->
+        <rect x="15" y="325" width="235" height="28" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+        <text x="132" y="343" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">✓ EXIF Verified &amp; Decoded</text>
+      </g>
+
+      <!-- Card 2: Beach Sunset Photo -->
+      <g transform="translate(285, 0)">
+        <rect width="265" height="370" rx="12" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+        <rect x="10" y="10" width="245" height="190" rx="8" fill="#1e293b"/>
+        <!-- SVG Sunset Art -->
+        <path d="M10 160 Q 130 140 255 160 L255 200 L10 200 Z" fill="#0284c7"/>
+        <circle cx="130" cy="110" r="28" fill="#f97316"/>
+        <rect x="20" y="20" width="55" height="22" rx="4" fill="#0f172a" fill-opacity="0.8"/>
+        <text x="47" y="35" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">JPEG</text>
+        <text x="15" y="225" fill="#f8fafc" font-family="Outfit, sans-serif" font-size="14" font-weight="600">recovered_00034a1200.jpg</text>
+        <text x="15" y="246" fill="#94a3b8" font-family="monospace" font-size="11">Resolution: 8000 x 6000 (48 MP)</text>
+        <text x="15" y="266" fill="#94a3b8" font-family="monospace" font-size="11">Camera: Kids Camera KC-2026</text>
+        <text x="15" y="286" fill="#94a3b8" font-family="monospace" font-size="11">Size: 1.02 MB | Intact: 100%</text>
+        <text x="15" y="306" fill="#94a3b8" font-family="monospace" font-size="11">Offset: 0x00034a1200 (Sector 107,785)</text>
+        <rect x="15" y="325" width="235" height="28" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+        <text x="132" y="343" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">✓ EXIF Verified &amp; Decoded</text>
+      </g>
+
+      <!-- Card 3: AVI Video -->
+      <g transform="translate(570, 0)">
+        <rect width="265" height="370" rx="12" fill="url(#cardBg)" stroke="#6366f1" stroke-width="1.5"/>
+        <rect x="10" y="10" width="245" height="190" rx="8" fill="#1e1b4b"/>
+        <!-- Video Play Icon -->
+        <circle cx="132" cy="105" r="32" fill="#6366f1" fill-opacity="0.8"/>
+        <polygon points="124,92 148,105 124,118" fill="#ffffff"/>
+        <rect x="20" y="20" width="70" height="22" rx="4" fill="#0f172a" fill-opacity="0.8"/>
+        <text x="55" y="35" fill="#a5b4fc" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">AVI VIDEO</text>
+        <text x="15" y="225" fill="#f8fafc" font-family="Outfit, sans-serif" font-size="14" font-weight="600">recovered_000c22c000.avi</text>
+        <text x="15" y="246" fill="#94a3b8" font-family="monospace" font-size="11">Dimensions: 640 x 480 (VGA)</text>
+        <text x="15" y="266" fill="#94a3b8" font-family="monospace" font-size="11">Duration: 41.0 seconds</text>
+        <text x="15" y="286" fill="#94a3b8" font-family="monospace" font-size="11">Size: 19.5 MB | Track: MJPEG</text>
+        <text x="15" y="306" fill="#94a3b8" font-family="monospace" font-size="11">Offset: 0x000c22c000 (Sector 397,664)</text>
+        <rect x="15" y="325" width="235" height="28" rx="6" fill="#6366f1" fill-opacity="0.2" stroke="#6366f1" stroke-width="1"/>
+        <text x="132" y="343" fill="#c7d2fe" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">✓ Playable RIFF Video Track</text>
+      </g>
+
+      <!-- Card 4: Action Cam Photo -->
+      <g transform="translate(855, 0)">
+        <rect width="265" height="370" rx="12" fill="url(#cardBg)" stroke="#334155" stroke-width="1"/>
+        <rect x="10" y="10" width="245" height="190" rx="8" fill="#1e293b"/>
+        <!-- SVG Forest Scene -->
+        <path d="M10 180 L70 120 L130 180 Z" fill="#15803d"/>
+        <path d="M80 180 L140 100 L200 180 Z" fill="#166534"/>
+        <path d="M150 180 L210 130 L255 180 Z" fill="#14532d"/>
+        <rect x="20" y="20" width="55" height="22" rx="4" fill="#0f172a" fill-opacity="0.8"/>
+        <text x="47" y="35" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">JPEG</text>
+        <text x="15" y="225" fill="#f8fafc" font-family="Outfit, sans-serif" font-size="14" font-weight="600">recovered_00041b8000.jpg</text>
+        <text x="15" y="246" fill="#94a3b8" font-family="monospace" font-size="11">Resolution: 8000 x 6000 (48 MP)</text>
+        <text x="15" y="266" fill="#94a3b8" font-family="monospace" font-size="11">Camera: Kids Camera KC-2026</text>
+        <text x="15" y="286" fill="#94a3b8" font-family="monospace" font-size="11">Size: 945.3 KB | Intact: 100%</text>
+        <text x="15" y="306" fill="#94a3b8" font-family="monospace" font-size="11">Offset: 0x00041b8000 (Sector 134,592)</text>
+        <rect x="15" y="325" width="235" height="28" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+        <text x="132" y="343" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">✓ EXIF Verified &amp; Decoded</text>
+      </g>
+    </g>
+  </g>
+</svg>

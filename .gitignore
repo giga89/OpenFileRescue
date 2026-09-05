@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data images and recovery test output
+*.img
+*.raw
+*.dd
+recovered_files/
+recovered_sd/
+test_recovered_export/
+
+# Environment
+.venv/
+env/
+.idea/
+.vscode/

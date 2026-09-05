@@ -1,0 +1,29 @@
+name: Bug Report
+description: Create a report to help us improve OpenFileRescue
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report a bug!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: system-info
+    attributes:
+      label: System & Storage Information
+      description: OS (Windows / Linux / macOS), storage medium (e.g. 32GB FAT32 MicroSD, 64GB exFAT USB, disk image), Python version.
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce the issue.
+    validations:
+      required: true

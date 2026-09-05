@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openfilerescue"
+version = "1.0.0"
+authors = [
+  { name = "OpenFileRescue Contributors" },
+]
+description = "Modern, open-source file, photo, and data recovery tool for MicroSD cards, flash drives, and disk images."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["data-recovery", "file-carver", "photo-recovery", "forensics", "microsd", "open-source", "fat32", "exfat"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: End Users/Desktop",
+  "Intended Audience :: System Administrators",
+  "Topic :: System :: Recovery Tools",
+  "Topic :: System :: Filesystems",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+imaging = ["pillow>=9.0.0"]
+
+[project.scripts]
+openfilerescue = "openfilerescue.cli:main"
+openfilerescue-gui = "run:main"
+
+[tool.setuptools.packages.find]
+include = ["openfilerescue*"]

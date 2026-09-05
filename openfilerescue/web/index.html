@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenFileRescue - Open-Source File, Photo & Data Recovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
+          <path d="M12 9v8m-4-4h8" stroke-dasharray="2 2" stroke-opacity="0.6"></path>
+        </svg>
+      </div>
+      <div class="brand-info">
+        <div class="brand-title-wrap">
+          <h1>OpenFileRescue</h1>
+          <span class="badge-wip">Work in Progress (Alpha)</span>
+          <span class="badge-free">100% Free & Open Source</span>
+        </div>
+        <p class="brand-sub">Open-source photo, video, and data recovery for MicroSD cards, flash drives, and disk images</p>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="safety-indicator" title="Storage device access is strictly locked to Read-Only to safeguard the hardware">
+        <span class="pulse-dot"></span>
+        <span class="safety-text">Safe Mode (Read-Only)</span>
+      </div>
+      <button id="btn-create-sample" class="btn btn-secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        Create Demo SD Image
+      </button>
+      <button id="btn-refresh-sources" class="btn btn-icon" title="Refresh connected drives">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <polyline points="1 20 1 14 7 14"></polyline>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- Source Selection & Configuration Bar -->
+    <section class="config-card">
+      <div class="config-grid">
+        <div class="form-group flex-2">
+          <label for="source-select">Drive or Disk Image (.img / .raw):</label>
+          <div class="input-with-action">
+            <select id="source-select">
+              <option value="">Detecting drives...</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group flex-2">
+          <label for="custom-path-input">Or Custom Path / Image File:</label>
+          <input type="text" id="custom-path-input" placeholder="e.g. /dev/sdb, D:\, or sample_microsd.img">
+        </div>
+
+        <div class="form-group">
+          <label for="step-select">Scan Mode:</label>
+          <select id="step-select">
+            <option value="512">Standard Sector (512B - Recommended)</option>
+            <option value="4096">Fast Cluster (4KB - High Speed)</option>
+            <option value="64">Deep Byte Carving (64B)</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button id="btn-start-scan" class="btn btn-primary btn-glow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Start Scan
+          </button>
+          <button id="btn-pause-scan" class="btn btn-warning" disabled>Pause</button>
+          <button id="btn-stop-scan" class="btn btn-danger" disabled>Stop</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real-time Stats Telemetry Bar -->
+    <section class="telemetry-bar">
+      <div class="telemetry-card">
+        <div class="stat-label">Progress</div>
+        <div class="stat-value" id="stat-progress">0.0%</div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="telemetry-card">
+        <div class="stat-label">Scanned Data</div>
+        <div class="stat-value" id="stat-scanned">0 MB / 0 MB</div>
+        <div class="stat-sub" id="stat-speed">Speed: 0.0 MB/s</div>
+      </div>
+
+      <div class="telemetry-card highlight-green">
+        <div class="stat-label">Recovered Files</div>
+        <div class="stat-value" id="stat-files-found">0</div>
+        <div class="stat-sub" id="stat-file-breakdown">No files discovered yet</div>
+      </div>
+
+      <div class="telemetry-card">
+        <div class="stat-label">Time Remaining (ETA)</div>
+        <div class="stat-value" id="stat-eta">--:--</div>
+        <div class="stat-sub" id="stat-status-msg">Idle</div>
+      </div>
+
+      <div class="telemetry-card">
+        <div class="stat-label">Bad Sectors</div>
+        <div class="stat-value text-green" id="stat-bad-sectors">0</div>
+        <div class="stat-sub">Storage Health OK</div>
+      </div>
+    </section>
+
+    <!-- Interactive Sector Block Visualizer -->
+    <section class="sector-map-section">
+      <div class="section-header">
+        <div class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Real-Time LBA Sector Grid Map
+        </div>
+        <div class="sector-legend">
+          <span class="legend-item"><span class="block-sample block-pending"></span> Pending</span>
+          <span class="legend-item"><span class="block-sample block-scanned"></span> Scanned</span>
+          <span class="legend-item"><span class="block-sample block-found"></span> File Found</span>
+          <span class="legend-item"><span class="block-sample block-bad"></span> Bad Sector</span>
+        </div>
+      </div>
+      <div class="sector-grid" id="sector-grid">
+        <!-- 120 block tiles populated dynamically -->
+      </div>
+    </section>
+
+    <!-- Discovered Files & Live Gallery -->
+    <section class="gallery-section">
+      <div class="gallery-toolbar">
+        <div class="gallery-tabs" id="gallery-tabs">
+          <button class="tab-btn active" data-filter="all">All (<span id="count-all">0</span>)</button>
+          <button class="tab-btn" data-filter="photos">Photos (<span id="count-photos">0</span>)</button>
+          <button class="tab-btn" data-filter="video">Videos (<span id="count-video">0</span>)</button>
+          <button class="tab-btn" data-filter="audio">Audio (<span id="count-audio">0</span>)</button>
+          <button class="tab-btn" data-filter="docs">Documents (<span id="count-docs">0</span>)</button>
+        </div>
+
+        <div class="gallery-actions">
+          <label class="select-all-wrap">
+            <input type="checkbox" id="select-all-checkbox"> Select All
+          </label>
+          <button id="btn-open-export" class="btn btn-success btn-glow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Export Recovered (<span id="export-count-badge">0</span>)
+          </button>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h3>No recovered photos yet</h3>
+        <p>Select a drive or create a demo test image, then click "Start Scan" to carve deleted files.</p>
+      </div>
+
+      <!-- Photo Cards Grid -->
+      <div class="photo-grid" id="photo-grid" style="display: none;"></div>
+    </section>
+
+  </main>
+
+  <!-- Export Dialog Modal -->
+  <div class="modal-overlay" id="export-modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Export Recovered Files</h2>
+        <button class="btn-close" id="btn-close-export">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="export-dir-input">Destination Folder:</label>
+          <input type="text" id="export-dir-input" value="">
+        </div>
+        <div class="form-group">
+          <label for="export-org-select">Folder Organization:</label>
+          <select id="export-org-select">
+            <option value="by_type">Organize by File Type (JPEG / PNG / RAW / Video)</option>
+            <option value="by_camera">Organize by Camera Model (EXIF)</option>
+            <option value="by_date">Organize by Date Taken (Year/Month)</option>
+            <option value="flat">No Subfolders (All Together)</option>
+          </select>
+        </div>
+        <div class="export-summary-box">
+          <div id="export-summary-text">Ready to export all selected files. No limits, paywalls, or licenses required!</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btn-cancel-export">Cancel</button>
+        <button class="btn btn-success btn-glow" id="btn-confirm-export">Save Free & Unlimited</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Preview Modal -->
+  <div class="modal-overlay" id="lightbox-modal" style="display: none;">
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="btn-close-lightbox">&times;</button>
+      <div class="lightbox-content">
+        <div class="lightbox-media-wrap">
+          <img id="lightbox-img" src="" alt="Preview">
+        </div>
+        <div class="lightbox-sidebar">
+          <h3 id="lightbox-title">File Details</h3>
+          <div class="meta-table" id="lightbox-meta">
+            <!-- Populated dynamically -->
+          </div>
+          <a id="lightbox-download-btn" class="btn btn-primary" href="#" download>Download File</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
