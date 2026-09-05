@@ -104,11 +104,18 @@ class TestEndToEndAPI(unittest.TestCase):
         self.assertTrue(os.path.exists(os.path.join(export_dir, "JPG")))
         self.assertTrue(os.path.exists(os.path.join(export_dir, "PNG")))
 
+        # Stop scan & release file handles before cleanup
+        self._post("/api/scan/stop", {})
+        STATE.reset()
+
         # Clean up test output
         import shutil
         shutil.rmtree(export_dir, ignore_errors=True)
         if os.path.exists(img_path):
-            os.remove(img_path)
+            try:
+                os.remove(img_path)
+            except Exception:
+                pass
 
 
 if __name__ == "__main__":
