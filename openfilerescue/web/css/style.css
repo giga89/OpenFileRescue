@@ -3,23 +3,29 @@
    ========================================================================== */
 
 :root {
-  --bg-main: #07090e;
-  --bg-card: rgba(16, 23, 38, 0.75);
-  --bg-card-hover: rgba(23, 33, 54, 0.85);
-  --bg-input: #0c1220;
+  --bg-main: #0a0e17;
+  --bg-card: rgba(18, 24, 38, 0.85);
+  --bg-card-hover: rgba(30, 41, 59, 0.95);
+  --bg-input: #0f172a;
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-focus: #38bdf8;
+  --border-focus: #4285F4;
 
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
+  /* Proposal 1 Palette (Google Harmonious Colors) */
+  --brand-blue: #4285F4;
+  --brand-green: #34A853;
+  --brand-amber: #FBBC05;
+  --brand-red: #EA4335;
+
   --accent-cyan: #38bdf8;
-  --accent-blue: #2563eb;
-  --accent-emerald: #10b981;
-  --accent-amber: #f59e0b;
-  --accent-rose: #f43f5e;
-  --accent-purple: #a855f7;
+  --accent-blue: #4285F4;
+  --accent-emerald: #34A853;
+  --accent-amber: #FBBC05;
+  --accent-rose: #EA4335;
+  --accent-purple: #8b5cf6;
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -28,8 +34,9 @@
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.25);
-  --shadow-glow-emerald: 0 0 20px rgba(16, 185, 129, 0.25);
+  --shadow-glow: 0 0 20px rgba(66, 133, 244, 0.3);
+  --shadow-glow-emerald: 0 0 20px rgba(52, 168, 83, 0.3);
+  --shadow-glow-amber: 0 0 20px rgba(251, 188, 5, 0.3);
 
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -102,7 +109,7 @@ body {
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: linear-gradient(to right, #f8fafc, #93c5fd);
+  background: linear-gradient(135deg, #f8fafc 20%, #4285F4 65%, #34A853 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -198,13 +205,13 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #0284c7, #2563eb);
+  background: linear-gradient(135deg, #4285F4, #1A73E8);
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+  background: linear-gradient(135deg, #5B95F5, #4285F4);
   box-shadow: var(--shadow-glow);
   transform: translateY(-1px);
 }
@@ -221,23 +228,24 @@ body {
 }
 
 .btn-success {
-  background: linear-gradient(135deg, #059669, #10b981);
+  background: linear-gradient(135deg, #0D904F, #34A853);
   color: #fff;
 }
 
 .btn-success:hover:not(:disabled) {
+  background: linear-gradient(135deg, #109E55, #48B764);
   box-shadow: var(--shadow-glow-emerald);
   transform: translateY(-1px);
 }
 
 .btn-warning {
-  background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
-  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(251, 188, 5, 0.15);
+  color: #FBBC05;
+  border-color: rgba(251, 188, 5, 0.35);
 }
 
 .btn-warning:hover:not(:disabled) {
-  background: rgba(245, 158, 11, 0.25);
+  background: rgba(251, 188, 5, 0.25);
 }
 
 .btn-danger {
@@ -377,16 +385,16 @@ select:focus, input[type="text"]:focus {
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(to right, #0ea5e9, #38bdf8);
+  background: linear-gradient(90deg, #4285F4 0%, #34A853 65%, #FBBC05 100%);
   transition: width 0.3s ease;
 }
 
 .highlight-green .stat-value {
-  color: #34d399;
+  color: #34A853;
 }
 
 .text-green {
-  color: #34d399;
+  color: #34A853;
 }
 
 /* Sector Map Visualizer */
@@ -461,16 +469,16 @@ select:focus, input[type="text"]:focus {
 }
 
 /* Sector block states */
-.block-pending { background: #131c2e; border: 1px solid rgba(255, 255, 255, 0.04); }
-.block-scanned { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); }
+.block-pending { background: #111827; border: 1px solid rgba(255, 255, 255, 0.04); }
+.block-scanned { background: #1e293b; border: 1px solid rgba(66, 133, 244, 0.25); }
 .block-found { 
-  background: #10b981; 
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6); 
+  background: #34A853; 
+  box-shadow: 0 0 8px rgba(52, 168, 83, 0.7); 
   animation: pulse-block 1.5s infinite alternate;
 }
 .block-bad { 
-  background: #f43f5e; 
-  box-shadow: 0 0 6px rgba(244, 63, 94, 0.6); 
+  background: #EA4335; 
+  box-shadow: 0 0 8px rgba(234, 67, 53, 0.7); 
 }
 
 @keyframes pulse-block {
