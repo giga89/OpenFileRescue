@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Concept 3: "Digital First-Aid / Emergency Rescue Cross" -->
+  <defs>
+    <filter id="p3_shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Dark Rounded Container -->
+  <rect width="512" height="512" rx="100" fill="#0f172a"/>
+
+  <!-- Main File Container -->
+  <g transform="translate(136, 66)" filter="url(#p3_shadow)">
+    <!-- Base Document (Clean White) -->
+    <path d="M 0 24 C 0 10.7 10.7 0 24 0 L 160 0 L 240 80 L 240 356 C 240 369.3 229.3 380 216 380 L 24 380 C 10.7 380 0 369.3 0 356 Z" fill="#F8FAFC"/>
+    
+    <!-- Folded Corner -->
+    <path d="M 160 0 L 160 64 C 160 72.8 167.2 80 176 80 L 240 80 Z" fill="#4285F4"/>
+
+    <!-- Emergency Rescue Cross (Google 4-Color Style) -->
+    <g transform="translate(120, 230)">
+      <!-- Top Arm: Blue -->
+      <rect x="-24" y="-90" width="48" height="66" rx="12" fill="#4285F4"/>
+      <!-- Bottom Arm: Green -->
+      <rect x="-24" y="24" width="48" height="66" rx="12" fill="#34A853"/>
+      <!-- Left Arm: Coral Red -->
+      <rect x="-90" y="-24" width="66" height="48" rx="12" fill="#EA4335"/>
+      <!-- Right Arm: Amber Yellow -->
+      <rect x="24" y="-24" width="66" height="48" rx="12" fill="#FBBC05"/>
+      <!-- Center Core: Vibrant Blue/White -->
+      <rect x="-24" y="-24" width="48" height="48" rx="8" fill="#1A73E8"/>
+      <circle cx="0" cy="0" r="10" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Top Document Preview Lines -->
+    <rect x="36" y="50" width="90" height="14" rx="7" fill="#E2E8F0"/>
+    <rect x="36" y="76" width="60" height="14" rx="7" fill="#E2E8F0"/>
+  </g>
+
+  <!-- Pulse / Heartbeat Lifeline across the bottom -->
+  <path d="M 60 410 L 160 410 L 185 360 L 210 450 L 235 390 L 255 410 L 452 410" fill="none" stroke="#34A853" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

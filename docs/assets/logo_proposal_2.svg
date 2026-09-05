@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Concept 2: "The Restore Loop & Storage Card" -->
+  <defs>
+    <filter id="p2_shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Dark Container -->
+  <rect width="512" height="512" rx="100" fill="#0f172a"/>
+
+  <!-- Storage Drive / MicroSD Card Body in Background -->
+  <g transform="translate(166, 116)" filter="url(#p2_shadow)">
+    <!-- Base Card -->
+    <path d="M 24 0 L 156 0 A 20 20 0 0 1 176 20 L 176 260 A 20 20 0 0 1 156 280 L 20 280 A 20 20 0 0 1 0 260 L 0 45 L 24 15 Z" fill="#1e293b" stroke="#334155" stroke-width="3"/>
+    <!-- Gold Contacts -->
+    <g transform="translate(30, 20)">
+      <rect x="0" y="0" width="14" height="28" rx="4" fill="#FBBC05"/>
+      <rect x="24" y="0" width="14" height="28" rx="4" fill="#FBBC05"/>
+      <rect x="48" y="0" width="14" height="28" rx="4" fill="#FBBC05"/>
+      <rect x="72" y="0" width="14" height="28" rx="4" fill="#FBBC05"/>
+      <rect x="96" y="0" width="14" height="28" rx="4" fill="#FBBC05"/>
+    </g>
+    <!-- Card Notch Cut line -->
+    <path d="M 0 45 L 24 15" stroke="#475569" stroke-width="3"/>
+  </g>
+
+  <!-- The Resurrected File Document (Emerging from Card Center) -->
+  <g transform="translate(196, 175)" filter="url(#p2_shadow)">
+    <path d="M 0 16 C 0 7.2 7.2 0 16 0 L 80 0 L 120 40 L 120 144 C 120 152.8 112.8 160 104 160 L 16 160 C 7.2 160 0 152.8 0 144 Z" fill="#F8FAFC"/>
+    <path d="M 80 0 L 80 32 C 80 36.4 83.6 40 88 40 L 120 40 Z" fill="#4285F4"/>
+    <!-- Photo Graphic inside -->
+    <circle cx="85" cy="80" r="12" fill="#FBBC05"/>
+    <path d="M 20 135 L 50 90 A 4 4 0 0 1 58 90 L 88 135 Z" fill="#4285F4"/>
+    <path d="M 55 135 L 75 105 A 4 4 0 0 1 83 105 L 105 135 Z" fill="#34A853"/>
+  </g>
+
+  <!-- Big Circular Restore Arrow (Counter-Clockwise Recovery Loop) -->
+  <!-- Segment 1: Google Blue (Top to Right) -->
+  <path d="M 256 56 A 200 200 0 0 1 456 256" fill="none" stroke="#4285F4" stroke-width="26" stroke-linecap="round"/>
+  
+  <!-- Segment 2: Google Green (Right to Bottom) -->
+  <path d="M 456 256 A 200 200 0 0 1 256 456" fill="none" stroke="#34A853" stroke-width="26" stroke-linecap="round"/>
+
+  <!-- Segment 3: Google Yellow/Amber (Bottom to Left) -->
+  <path d="M 256 456 A 200 200 0 0 1 70 320" fill="none" stroke="#FBBC05" stroke-width="26" stroke-linecap="round"/>
+
+  <!-- Restore Arrow Head (At Top, pointing counter-clockwise back into the past) -->
+  <g transform="translate(256, 56)">
+    <polygon points="12,-24 -36,0 12,24" fill="#4285F4"/>
+  </g>
+</svg>
