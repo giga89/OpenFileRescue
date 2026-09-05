@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
-  <img src="https://img.shields.io/badge/Status-Work_in_Progress_(Alpha)-amber.svg" alt="Status">
+  <a href="https://github.com/giga89/OpenFileRescue/releases"><img src="https://img.shields.io/badge/Release-v1.0.0--alpha-blue.svg" alt="Latest Release"></a>
+  <a href="https://github.com/giga89/OpenFileRescue/actions"><img src="https://github.com/giga89/OpenFileRescue/actions/workflows/ci.yml/badge.svg" alt="CI / Test Suite"></a>
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg" alt="Python 3.9+"></a>
   <a href="https://github.com/astral-sh/uv"><img src="https://img.shields.io/badge/Astral_UV-Zero_Setup-blueviolet.svg" alt="Astral UV"></a>
   <a href="Dockerfile"><img src="https://img.shields.io/badge/Docker-Ready-2496ED.svg" alt="Docker Ready"></a>
   <img src="https://img.shields.io/badge/Hardware_Safety-Strict_Read--Only-brightgreen.svg" alt="Hardware Safety">
   <img src="https://img.shields.io/badge/Cost-100%25_Free_%26_Open_Source-success.svg" alt="Free">
-  <img src="https://img.shields.io/badge/Tests-Passing_(100%25)-brightgreen.svg" alt="Tests">
 </p>
 
 > [!WARNING]
@@ -214,10 +214,15 @@ python3 run.py
 
 ---
 
-### Option D: Install via pip 📦
-You can also install OpenFileRescue as a system or virtualenv package directly from GitHub:
+### Option D: Install via pip / Pre-built Wheel Package 📦
+You can install OpenFileRescue as a standard Python package directly from GitHub or from pre-built wheels:
+
 ```bash
+# Option 1: Install directly from GitHub
 pip install git+https://github.com/giga89/OpenFileRescue.git
+
+# Option 2: Install pre-built wheel from GitHub Releases
+pip install openfilerescue-1.0.0-py3-none-any.whl
 ```
 Then run the tools directly from any terminal:
 ```bash
