@@ -1,63 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Concept 1: "The Healed File" (Reconstruction of Corrupted Data) -->
   <defs>
-    <!-- Soft subtle shadow for the center card -->
-    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.18"/>
+    <linearGradient id="p1_grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4285F4"/>
+      <stop offset="60%" stop-color="#34A853"/>
+      <stop offset="100%" stop-color="#FBBC05"/>
+    </linearGradient>
+    <filter id="p1_shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.2"/>
     </filter>
   </defs>
 
-  <!-- Google-Style Flat Rescue Ring (Salvagente) -->
-  <!-- 4 Flat Quadrant Arcs in Google Palette: Blue, Amber/Yellow, Green, Red -->
-  <g transform="translate(256, 256)">
-    <!-- Top Arc: Google Blue -->
-    <path d="M -134.35 -134.35 A 190 190 0 0 1 134.35 -134.35 L 77.78 -77.78 A 110 110 0 0 0 -77.78 -77.78 Z" fill="#4285F4"/>
-    
-    <!-- Right Arc: Google Yellow / Amber -->
-    <path d="M 134.35 -134.35 A 190 190 0 0 1 134.35 134.35 L 77.78 77.78 A 110 110 0 0 0 77.78 -77.78 Z" fill="#FBBC05"/>
-    
-    <!-- Bottom Arc: Google Green -->
-    <path d="M 134.35 134.35 A 190 190 0 0 1 -134.35 134.35 L -77.78 77.78 A 110 110 0 0 0 77.78 77.78 Z" fill="#34A853"/>
-    
-    <!-- Left Arc: Google Coral Red -->
-    <path d="M -134.35 134.35 A 190 190 0 0 1 -134.35 -134.35 L -77.78 -77.78 A 110 110 0 0 0 -77.78 77.78 Z" fill="#EA4335"/>
+  <!-- Dark container for contrast -->
+  <rect width="512" height="512" rx="100" fill="#0f172a"/>
 
-    <!-- 4 White Separation Straps (Lifering bands) -->
-    <rect x="-8" y="-195" width="16" height="90" rx="4" fill="#FFFFFF"/>
-    <rect x="-8" y="105" width="16" height="90" rx="4" fill="#FFFFFF"/>
-    <rect x="-195" y="-8" width="90" height="16" rx="4" fill="#FFFFFF"/>
-    <rect x="105" y="-8" width="90" height="16" rx="4" fill="#FFFFFF"/>
+  <!-- Left: Fragmented / Corrupted Data Blocks (Lost Sectors) -->
+  <g fill="#475569" opacity="0.6">
+    <rect x="70" y="320" width="22" height="22" rx="4"/>
+    <rect x="102" y="350" width="26" height="26" rx="4"/>
+    <rect x="74" y="380" width="20" height="20" rx="4"/>
+    <rect x="110" y="290" width="18" height="18" rx="4"/>
+    <rect x="80" y="260" width="16" height="16" rx="3"/>
+  </g>
+  <!-- Animated / Recovering Data Blocks -->
+  <rect x="120" y="330" width="24" height="24" rx="4" fill="#4285F4"/>
+  <rect x="140" y="370" width="26" height="26" rx="4" fill="#34A853"/>
+  <rect x="110" y="405" width="22" height="22" rx="4" fill="#EA4335"/>
+
+  <!-- Main Reconstructed File Document (Angled & Elevated) -->
+  <g transform="translate(170, 75)" filter="url(#p1_shadow)">
+    <!-- Base Document -->
+    <path d="M 0 24 C 0 10.7 10.7 0 24 0 L 160 0 L 230 70 L 230 336 C 230 349.3 219.3 360 206 360 L 24 360 C 10.7 360 0 349.3 0 336 Z" fill="#F8FAFC"/>
+    
+    <!-- Folded Corner (Google Amber) -->
+    <path d="M 160 0 L 160 54 C 160 62.8 167.2 70 176 70 L 230 70 Z" fill="#FBBC05"/>
+
+    <!-- Recovered Photo Inside Document -->
+    <g transform="translate(35, 110)">
+      <rect width="160" height="130" rx="12" fill="#E2E8F0"/>
+      <!-- Sun -->
+      <circle cx="125" cy="38" r="16" fill="#FBBC05"/>
+      <!-- Mountains / Landscapes -->
+      <path d="M 15 130 L 65 65 A 6 6 0 0 1 75 65 L 125 130 Z" fill="#4285F4"/>
+      <path d="M 70 130 L 105 80 A 6 6 0 0 1 115 80 L 150 130 Z" fill="#34A853"/>
+    </g>
+
+    <!-- Success / Verification Pulse Bar -->
+    <rect x="35" y="270" width="160" height="14" rx="7" fill="#E2E8F0"/>
+    <rect x="35" y="270" width="125" height="14" rx="7" fill="#34A853"/>
+    <rect x="35" y="300" width="100" height="14" rx="7" fill="#CBD5E1"/>
   </g>
 
-  <!-- Center Floating MicroSD / Recovered File Card -->
-  <g transform="translate(186, 170)" filter="url(#cardShadow)">
-    <!-- White Card Base with Rounded Corners -->
-    <path d="M 16 0 L 104 0 A 16 16 0 0 1 120 16 L 120 156 A 16 16 0 0 1 104 172 L 16 172 A 16 16 0 0 1 0 156 L 0 36 L 24 12 A 16 16 0 0 0 16 0 Z" fill="#FFFFFF"/>
-    
-    <!-- MicroSD Notched Corner Indicator & Grip Lines -->
-    <path d="M 0 32 L 20 12" stroke="#E2E8F0" stroke-width="2.5" stroke-linecap="round"/>
-    
-    <!-- MicroSD Gold Pins / File Header Lines -->
-    <g transform="translate(24, 18)">
-      <rect x="0" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-      <rect x="16" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-      <rect x="32" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-      <rect x="48" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-      <rect x="64" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-    </g>
-
-    <!-- Center Recovery Sparkle / Resurrected Photo Symbol -->
-    <g transform="translate(40, 68)">
-      <!-- Mountain / Photo Icon -->
-      <circle cx="50" cy="18" r="9" fill="#FBBC05"/>
-      <path d="M 6 58 L 26 34 A 4 4 0 0 1 32 34 L 52 58 Z" fill="#4285F4"/>
-      <path d="M 28 58 L 44 40 A 4 4 0 0 1 50 40 L 64 58 Z" fill="#34A853"/>
-    </g>
-
-    <!-- Bottom Life Pulse / Health Checkmark -->
-    <g transform="translate(26, 138)">
-      <circle cx="10" cy="10" r="10" fill="#34A853"/>
-      <path d="M 6 10 L 9 13 L 15 7" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <rect x="28" y="6" width="46" height="8" rx="4" fill="#E2E8F0"/>
-    </g>
-  </g>
+  <!-- Dynamic Recovery Swoosh / Restore Arrow Sweeping Over File -->
+  <path d="M 60 410 C 80 470 200 480 290 440 C 370 405 440 310 440 210 C 440 140 400 90 350 70" fill="none" stroke="url(#p1_grad)" stroke-width="22" stroke-linecap="round"/>
+  <!-- Arrow Head -->
+  <polygon points="370,45 330,75 365,100" fill="#FBBC05"/>
 </svg>

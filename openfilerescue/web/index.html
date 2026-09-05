@@ -16,28 +16,31 @@
     <div class="header-left">
       <div class="logo-icon">
         <svg viewBox="0 0 512 512" width="34" height="34">
-          <g transform="translate(256, 256)">
-            <path d="M -134.35 -134.35 A 190 190 0 0 1 134.35 -134.35 L 77.78 -77.78 A 110 110 0 0 0 -77.78 -77.78 Z" fill="#4285F4"/>
-            <path d="M 134.35 -134.35 A 190 190 0 0 1 134.35 134.35 L 77.78 77.78 A 110 110 0 0 0 77.78 -77.78 Z" fill="#FBBC05"/>
-            <path d="M 134.35 134.35 A 190 190 0 0 1 -134.35 134.35 L -77.78 77.78 A 110 110 0 0 0 77.78 77.78 Z" fill="#34A853"/>
-            <path d="M -134.35 134.35 A 190 190 0 0 1 -134.35 -134.35 L -77.78 -77.78 A 110 110 0 0 0 -77.78 -77.78 Z" fill="#EA4335"/>
-            <rect x="-8" y="-195" width="16" height="90" rx="4" fill="#FFFFFF"/>
-            <rect x="-8" y="105" width="16" height="90" rx="4" fill="#FFFFFF"/>
-            <rect x="-195" y="-8" width="90" height="16" rx="4" fill="#FFFFFF"/>
-            <rect x="105" y="-8" width="90" height="16" rx="4" fill="#FFFFFF"/>
+          <defs>
+            <linearGradient id="nav_grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4285F4"/>
+              <stop offset="60%" stop-color="#34A853"/>
+              <stop offset="100%" stop-color="#FBBC05"/>
+            </linearGradient>
+          </defs>
+          <!-- Fragmented pixel blocks -->
+          <rect x="70" y="320" width="26" height="26" rx="5" fill="#64748B"/>
+          <rect x="106" y="360" width="28" height="28" rx="5" fill="#4285F4"/>
+          <rect x="70" y="390" width="24" height="24" rx="5" fill="#EA4335"/>
+          <!-- File Sheet -->
+          <g transform="translate(170, 75)">
+            <path d="M 0 24 C 0 10.7 10.7 0 24 0 L 160 0 L 230 70 L 230 336 C 230 349.3 219.3 360 206 360 L 24 360 C 10.7 360 0 349.3 0 336 Z" fill="#F8FAFC"/>
+            <path d="M 160 0 L 160 54 C 160 62.8 167.2 70 176 70 L 230 70 Z" fill="#FBBC05"/>
+            <!-- Photo in file -->
+            <rect x="35" y="110" width="160" height="130" rx="12" fill="#E2E8F0"/>
+            <circle cx="160" cy="148" r="16" fill="#FBBC05"/>
+            <path d="M 50 240 L 100 175 A 6 6 0 0 1 110 175 L 160 240 Z" fill="#4285F4"/>
+            <path d="M 105 240 L 140 190 A 6 6 0 0 1 150 190 L 185 240 Z" fill="#34A853"/>
+            <rect x="35" y="270" width="160" height="16" rx="8" fill="#34A853"/>
           </g>
-          <g transform="translate(186, 170)">
-            <path d="M 16 0 L 104 0 A 16 16 0 0 1 120 16 L 120 156 A 16 16 0 0 1 104 172 L 16 172 A 16 16 0 0 1 0 156 L 0 36 L 24 12 A 16 16 0 0 0 16 0 Z" fill="#FFFFFF"/>
-            <g transform="translate(24, 18)">
-              <rect x="0" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-              <rect x="16" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-              <rect x="32" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-              <rect x="48" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-              <rect x="64" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
-            </g>
-            <circle cx="60" cy="96" r="22" fill="#34A853"/>
-            <path d="M 48 96 L 56 104 L 72 88" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </g>
+          <!-- Swoosh restore curve -->
+          <path d="M 60 410 C 80 470 200 480 290 440 C 370 405 440 310 440 210 C 440 140 400 90 350 70" fill="none" stroke="url(#nav_grad)" stroke-width="26" stroke-linecap="round"/>
+          <polygon points="370,45 330,75 365,100" fill="#FBBC05"/>
         </svg>
       </div>
       <div class="brand-info">

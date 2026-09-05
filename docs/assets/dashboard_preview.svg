@@ -35,23 +35,27 @@
 
   <!-- Header -->
   <g transform="translate(40, 60)">
-    <!-- Google-Style Flat Logo Icon -->
+    <!-- Google-Style Flat Logo Icon (Option A: The Healed File) -->
     <g transform="translate(0, 0)">
       <rect width="44" height="44" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-      <!-- Mini Google-style flat lifebuoy ring -->
-      <g transform="translate(22, 22) scale(0.08)">
-        <path d="M -134.35 -134.35 A 190 190 0 0 1 134.35 -134.35 L 77.78 -77.78 A 110 110 0 0 0 -77.78 -77.78 Z" fill="#4285F4"/>
-        <path d="M 134.35 -134.35 A 190 190 0 0 1 134.35 134.35 L 77.78 77.78 A 110 110 0 0 0 77.78 -77.78 Z" fill="#FBBC05"/>
-        <path d="M 134.35 134.35 A 190 190 0 0 1 -134.35 134.35 L -77.78 77.78 A 110 110 0 0 0 77.78 77.78 Z" fill="#34A853"/>
-        <path d="M -134.35 134.35 A 190 190 0 0 1 -134.35 -134.35 L -77.78 -77.78 A 110 110 0 0 0 -77.78 -77.78 Z" fill="#EA4335"/>
-        <rect x="-8" y="-195" width="16" height="90" rx="4" fill="#FFFFFF"/>
-        <rect x="-8" y="105" width="16" height="90" rx="4" fill="#FFFFFF"/>
-        <rect x="-195" y="-8" width="90" height="16" rx="4" fill="#FFFFFF"/>
-        <rect x="105" y="-8" width="90" height="16" rx="4" fill="#FFFFFF"/>
+      <g transform="translate(4, 4) scale(0.07)">
+        <!-- Pixels -->
+        <rect x="70" y="320" width="30" height="30" rx="6" fill="#64748B"/>
+        <rect x="110" y="360" width="30" height="30" rx="6" fill="#4285F4"/>
+        <rect x="70" y="400" width="30" height="30" rx="6" fill="#EA4335"/>
+        <!-- File Sheet -->
+        <path d="M 170 80 C 170 66 182 55 196 55 L 340 55 L 420 135 L 420 420 C 420 434 408 445 394 445 L 196 445 C 182 445 170 434 170 420 Z" fill="#F8FAFC"/>
+        <path d="M 340 55 L 340 120 C 340 128 347 135 355 135 L 420 135 Z" fill="#FBBC05"/>
+        <!-- Mountain inside file -->
+        <rect x="210" y="160" width="170" height="130" rx="12" fill="#E2E8F0"/>
+        <circle cx="330" cy="195" r="16" fill="#FBBC05"/>
+        <path d="M 225 290 L 275 225 A 6 6 0 0 1 285 225 L 335 290 Z" fill="#4285F4"/>
+        <path d="M 280 290 L 315 240 A 6 6 0 0 1 325 240 L 360 290 Z" fill="#34A853"/>
+        <rect x="210" y="320" width="170" height="18" rx="9" fill="#34A853"/>
+        <!-- Swoosh arrow -->
+        <path d="M 60 410 C 80 470 200 480 290 440 C 370 405 440 310 440 210 C 440 140 400 90 350 70" fill="none" stroke="#34A853" stroke-width="26" stroke-linecap="round"/>
+        <polygon points="370,45 330,75 365,100" fill="#FBBC05"/>
       </g>
-      <!-- Center white card -->
-      <rect x="16" y="15" width="12" height="14" rx="2" fill="#FFFFFF"/>
-      <circle cx="22" cy="22" r="2.5" fill="#34A853"/>
     </g>
 
     <!-- Brand Name & Badges (Cleanly separated without any overlap) -->
