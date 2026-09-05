@@ -14,5 +14,9 @@ test_recovered_export/
 # Environment
 .venv/
 env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
 .idea/
 .vscode/

@@ -1,0 +1,32 @@
+services:
+  openfilerescue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: openfilerescue:latest
+    container_name: openfilerescue
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./recovered_files:/app/recovered_files
+      - ./images:/app/images
+    environment:
+      - OPENFILERESCUE_HOST=0.0.0.0
+      - OPENFILERESCUE_PORT=8765
+      - OPENFILERESCUE_NO_BROWSER=1
+    restart: unless-stopped
+
+  # Optional helper profile for interactive command-line mode
+  openfilerescue-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: openfilerescue:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./recovered_files:/app/recovered_files
+      - ./images:/app/images
+    entrypoint: ["python", "run.py", "--cli"]
+    profiles:
+      - cli

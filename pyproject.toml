@@ -29,6 +29,10 @@ classifiers = [
   "Operating System :: OS Independent",
 ]
 
+dependencies = [
+  "pillow>=9.0.0",
+]
+
 [project.optional-dependencies]
 imaging = ["pillow>=9.0.0"]
 

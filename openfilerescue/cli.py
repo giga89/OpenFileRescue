@@ -13,7 +13,6 @@ from openfilerescue.core.reader import SafeDiskReader, detect_available_sources,
 from openfilerescue.core.carver import FileCarver
 from openfilerescue.core.imager import SafeImager
 from openfilerescue.core.exporter import FileExporter
-from tests.make_test_disk import create_test_image
 
 
 # ANSI Color Codes for beautiful terminal styling
@@ -174,7 +173,12 @@ def run_interactive_wizard():
     elif choice == "d":
         print(f"\n{Term.CYAN}Generating 15 MB sample microSD test image...{Term.RESET}")
         sample_path = os.path.join(os.getcwd(), "sample_microsd_card.img")
-        create_test_image(sample_path, size_mb=15)
+        try:
+            from tests.make_test_disk import create_test_image
+            create_test_image(sample_path, size_mb=15)
+        except ImportError:
+            print(f"{Term.RED}Error: Pillow is required for demo image generation. Run: pip install pillow (or uv add pillow){Term.RESET}")
+            return
         print(f"{Term.GREEN}Demo disk image created: {sample_path}{Term.RESET}")
         target = sample_path
     elif choice == "c":
@@ -232,7 +236,12 @@ def main():
     if args.demo:
         print_banner()
         sample_path = os.path.join(os.getcwd(), "sample_microsd_card.img")
-        create_test_image(sample_path, size_mb=15)
+        try:
+            from tests.make_test_disk import create_test_image
+            create_test_image(sample_path, size_mb=15)
+        except ImportError:
+            print(f"{Term.RED}Error: Pillow is required for demo image generation. Run: pip install pillow (or uv add pillow){Term.RESET}")
+            return
         run_cli_scan(sample_path, output_dir=args.out, organization=args.org, sector_step=args.step)
         return
 

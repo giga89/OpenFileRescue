@@ -13,6 +13,8 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
   <img src="https://img.shields.io/badge/Status-Work_in_Progress_(Alpha)-amber.svg" alt="Status">
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg" alt="Python 3.9+"></a>
+  <a href="https://github.com/astral-sh/uv"><img src="https://img.shields.io/badge/Astral_UV-Zero_Setup-blueviolet.svg" alt="Astral UV"></a>
+  <a href="Dockerfile"><img src="https://img.shields.io/badge/Docker-Ready-2496ED.svg" alt="Docker Ready"></a>
   <img src="https://img.shields.io/badge/Hardware_Safety-Strict_Read--Only-brightgreen.svg" alt="Hardware Safety">
   <img src="https://img.shields.io/badge/Cost-100%25_Free_%26_Open_Source-success.svg" alt="Free">
   <img src="https://img.shields.io/badge/Tests-Passing_(100%25)-brightgreen.svg" alt="Tests">
@@ -136,39 +138,78 @@ OpenFileRescue/
 
 ---
 
-## 💻 Getting Started
+## ⚡ Quick Start (Choose Your Preferred Method)
 
-### Prerequisites
-- **Python 3.9 or higher** (pre-installed on most modern systems).
-- *Optional*: `pip install pillow` (for high-resolution thumbnail generation).
+OpenFileRescue is designed to require **minimal to zero prerequisites**. You do not even need Python installed on your computer if you choose the Astral UV or Docker methods.
+
+### Option A: Astral UV 🚀 *(Recommended - Zero Python Pre-installation)*
+[Astral UV](https://github.com/astral-sh/uv) is a blazingly fast Python runner that automatically downloads and manages the exact required Python environment in an isolated sandbox.
+
+1. **Install UV** (1-second install, zero administrative/sudo privileges needed):
+   - **Linux & macOS**:
+     ```bash
+     curl -LsSf https://astral.sh/uv/install.sh | sh
+     ```
+   - **Windows (PowerShell)**:
+     ```powershell
+     powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+     ```
+2. **Run OpenFileRescue**:
+   ```bash
+   uv run run.py
+   ```
+   *That's it! UV will resolve Python, prepare dependencies in milliseconds, and launch the Web UI.*
+
+   > **Tip**: You can even run OpenFileRescue directly from GitHub without cloning:
+   > ```bash
+   > uvx --from git+https://github.com/giga89/OpenFileRescue openfilerescue-gui
+   > ```
 
 ---
 
-### Running on Windows 🪟
-Double-click:
-```bat
+### Option B: Docker & Docker Compose 🐳 *(100% Containerized, Zero Host Dependencies)*
+If you have Docker installed, you can spin up the full recovery dashboard with a single command:
+
+```bash
+# Start the web dashboard (binds to http://localhost:8765)
+docker compose up
+```
+
+- **Recovered Files**: Saved persistently to `./recovered_files` on your host machine.
+- **Disk Images**: Place any `.img` / `.raw` disk images into `./images/` to scan them inside the container.
+
+#### Scanning Physical Block Devices on Linux with Docker
+To scan physical SD cards or block devices directly (`/dev/sdX`):
+```bash
+docker run --privileged --rm -it -p 8765:8765 \
+  -v /dev:/dev \
+  -v $(pwd)/recovered_files:/app/recovered_files \
+  openfilerescue:latest
+```
+
+#### Running Headless CLI in Docker
+```bash
+docker compose run --rm openfilerescue-cli
+```
+
+---
+
+### Option C: 1-Click Launchers & Standard Python 🐍
+
+#### Windows 🪟
+Double-click `run_windows.bat` (or run in PowerShell):
+```cmd
 run_windows.bat
 ```
-or run in PowerShell / Command Prompt:
-```cmd
-python run.py
-```
-Your default browser will open automatically at `http://127.0.0.1:8765`.
+*The launcher automatically detects UV, Python, or Docker on your system, and launches the dashboard at `http://127.0.0.1:8765`.*
 
----
-
-### Running on Linux / macOS 🐧 🍏
-In your terminal, execute:
-```bash
-# Launch Web UI mode
-python3 run.py
-
-# Or launch interactive CLI wizard
-python3 run.py --cli
-```
-or use the shell launcher:
+#### Linux / macOS 🐧 🍏
 ```bash
 chmod +x run.sh && ./run.sh
+```
+Or with standard Python 3 (Python 3.9+):
+```bash
+python3 run.py
 ```
 
 ---
