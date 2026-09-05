@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Soft subtle shadow for the center card -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Google-Style Flat Rescue Ring (Salvagente) -->
+  <!-- 4 Flat Quadrant Arcs in Google Palette: Blue, Amber/Yellow, Green, Red -->
+  <g transform="translate(256, 256)">
+    <!-- Top Arc: Google Blue -->
+    <path d="M -134.35 -134.35 A 190 190 0 0 1 134.35 -134.35 L 77.78 -77.78 A 110 110 0 0 0 -77.78 -77.78 Z" fill="#4285F4"/>
+    
+    <!-- Right Arc: Google Yellow / Amber -->
+    <path d="M 134.35 -134.35 A 190 190 0 0 1 134.35 134.35 L 77.78 77.78 A 110 110 0 0 0 77.78 -77.78 Z" fill="#FBBC05"/>
+    
+    <!-- Bottom Arc: Google Green -->
+    <path d="M 134.35 134.35 A 190 190 0 0 1 -134.35 134.35 L -77.78 77.78 A 110 110 0 0 0 77.78 77.78 Z" fill="#34A853"/>
+    
+    <!-- Left Arc: Google Coral Red -->
+    <path d="M -134.35 134.35 A 190 190 0 0 1 -134.35 -134.35 L -77.78 -77.78 A 110 110 0 0 0 -77.78 77.78 Z" fill="#EA4335"/>
+
+    <!-- 4 White Separation Straps (Lifering bands) -->
+    <rect x="-8" y="-195" width="16" height="90" rx="4" fill="#FFFFFF"/>
+    <rect x="-8" y="105" width="16" height="90" rx="4" fill="#FFFFFF"/>
+    <rect x="-195" y="-8" width="90" height="16" rx="4" fill="#FFFFFF"/>
+    <rect x="105" y="-8" width="90" height="16" rx="4" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Center Floating MicroSD / Recovered File Card -->
+  <g transform="translate(186, 170)" filter="url(#cardShadow)">
+    <!-- White Card Base with Rounded Corners -->
+    <path d="M 16 0 L 104 0 A 16 16 0 0 1 120 16 L 120 156 A 16 16 0 0 1 104 172 L 16 172 A 16 16 0 0 1 0 156 L 0 36 L 24 12 A 16 16 0 0 0 16 0 Z" fill="#FFFFFF"/>
+    
+    <!-- MicroSD Notched Corner Indicator & Grip Lines -->
+    <path d="M 0 32 L 20 12" stroke="#E2E8F0" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- MicroSD Gold Pins / File Header Lines -->
+    <g transform="translate(24, 18)">
+      <rect x="0" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
+      <rect x="16" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
+      <rect x="32" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
+      <rect x="48" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
+      <rect x="64" y="0" width="10" height="18" rx="3" fill="#FBBC05"/>
+    </g>
+
+    <!-- Center Recovery Sparkle / Resurrected Photo Symbol -->
+    <g transform="translate(40, 68)">
+      <!-- Mountain / Photo Icon -->
+      <circle cx="50" cy="18" r="9" fill="#FBBC05"/>
+      <path d="M 6 58 L 26 34 A 4 4 0 0 1 32 34 L 52 58 Z" fill="#4285F4"/>
+      <path d="M 28 58 L 44 40 A 4 4 0 0 1 50 40 L 64 58 Z" fill="#34A853"/>
+    </g>
+
+    <!-- Bottom Life Pulse / Health Checkmark -->
+    <g transform="translate(26, 138)">
+      <circle cx="10" cy="10" r="10" fill="#34A853"/>
+      <path d="M 6 10 L 9 13 L 15 7" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <rect x="28" y="6" width="46" height="8" rx="4" fill="#E2E8F0"/>
+    </g>
+  </g>
+</svg>

@@ -1,14 +1,22 @@
-# 🚀 OpenFileRescue
+<p align="center">
+  <img src="docs/assets/logo.svg" alt="OpenFileRescue Logo" width="140" height="140">
+</p>
 
-> **The modern, open-source file, photo, video, and data recovery tool for MicroSD cards, flash drives, and disk images.**  
-> *100% Free, Unlimited (No artificial 500 MB paywalls), and strictly Read-Only.*
+<h1 align="center">OpenFileRescue</h1>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
-[![Development Status](https://img.shields.io/badge/Status-Work_in_Progress_(Alpha)-amber.svg)]()
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
-[![Hardware Safety](https://img.shields.io/badge/Hardware_Safety-Strict_Read--Only-brightgreen.svg)]()
-[![Pricing](https://img.shields.io/badge/Cost-100%25_Free_%26_Open_Source-success.svg)]()
-[![Build & Test](https://img.shields.io/badge/Tests-Passing_(100%25)-brightgreen.svg)]()
+<p align="center">
+  <strong>The modern, open-source file, photo, video, and data recovery tool for MicroSD cards, flash drives, and disk images.</strong><br>
+  <em>100% Free, Unlimited (No artificial 500 MB paywalls), and strictly Read-Only.</em>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/Status-Work_in_Progress_(Alpha)-amber.svg" alt="Status">
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg" alt="Python 3.9+"></a>
+  <img src="https://img.shields.io/badge/Hardware_Safety-Strict_Read--Only-brightgreen.svg" alt="Hardware Safety">
+  <img src="https://img.shields.io/badge/Cost-100%25_Free_%26_Open_Source-success.svg" alt="Free">
+  <img src="https://img.shields.io/badge/Tests-Passing_(100%25)-brightgreen.svg" alt="Tests">
+</p>
 
 > [!WARNING]
 > **Project Status: Work in Progress (Alpha)**  

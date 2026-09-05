@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.svg" alt="OpenFileRescue Logo" width="110" height="110">
+</p>
+
 # 🔬 Real-World Benchmark Case Study: 32 GB FAT32 MicroSD
 
 This case study documents a real-world data recovery operation performed by **OpenFileRescue** on a degraded 32 GB microSD card previously used in a compact digital camera.
